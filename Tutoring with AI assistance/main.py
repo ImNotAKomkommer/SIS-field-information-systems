@@ -1,6 +1,6 @@
 import sqlite3
 import os
-from openai import OpenAI
+from openai import openai
 import hashlib
 import webbrowser
 from datetime import datetime
