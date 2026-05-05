@@ -1040,20 +1040,31 @@ class App(tk.Tk):
         entry.insert(0, "Explain Present Simple")
 
         def generate_answer(question):
-            q = question.lower()
-            if "present simple" in q:
-                return "Present Simple is used for habits, facts and regular actions. Example: I study English every day. She studies English every day."
-            if "book" in q or "lesson" in q or "tutor" in q:
-                return "Open Tutor Search, choose a preferred time and press Book lesson. After booking, the lecture becomes available."
-            if "quiz" in q or "test" in q:
-                return "The quiz opens after you read the lecture and press the completion button."
-            if "plan" in q or "study" in q:
-                return "A simple study plan: learn grammar for 20 minutes, practice vocabulary for 15 minutes and speak for 10 minutes daily."
-            if "negative" in q:
-                return "In Present Simple negatives, use do not or does not. Example: I do not play. She does not play."
-            if "question" in q:
-                return "In Present Simple questions, use do or does. Example: Do you study English? Does he study English?"
-            return "I can help with English learning, Present Simple, quiz preparation and tutor booking."
+            try:
+                api_key = os.getenv("OPENAI_API_KEY")
+
+                if not api_key:
+                    return (
+                        "OpenAI API key is not configured. "
+                        "Please set OPENAI_API_KEY in your system environment variables."
+            )
+
+                client = OpenAI(api_key=api_key)
+
+                response = client.responses.create(
+                    model="gpt-5.4-mini",
+                    input=(
+                        "You are an AI assistant inside an English tutoring desktop app. "
+                        "Help students with English grammar, Present Simple, tutor booking, "
+                        "quiz preparation and study plans. Answer briefly and clearly.\n\n"
+                        f"User question: {question}"
+                    )
+                )
+
+                return response.output_text
+
+            except Exception as e:
+                return f"AI error: {e}"
 
         def send():
             q = entry.get().strip()
