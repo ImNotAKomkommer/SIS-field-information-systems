@@ -232,7 +232,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         init_db()
-        self.title("AI English Tutor Desktop App")
+        self.title("AI Assisted Tutor Desktop App")
         self.geometry("1600x760")
         # glue and sticks ↑ 
         self.minsize(1200, 700)
@@ -281,10 +281,10 @@ class App(tk.Tk):
         outer = tk.Frame(self.container, bg=BG)
         outer.pack(fill="both", expand=True)
 
-        tk.Label(outer, text="AI English Tutor", font=("Segoe UI", 28, "bold"), fg=TEXT, bg=BG).pack(pady=(65, 5))
+        tk.Label(outer, text="AI Assisted Tutoring", font=("Segoe UI", 28, "bold"), fg=TEXT, bg=BG).pack(pady=(65, 5))
         tk.Label(
             outer,
-            text="Desktop application for tutor booking, English learning and AI support",
+            text="Desktop application for tutor booking, learning and AI support",
             font=("Segoe UI", 11),
             fg=MUTED,
             bg=BG
@@ -387,7 +387,7 @@ class App(tk.Tk):
         side.pack(side="left", fill="y")
         side.pack_propagate(False)
 
-        tk.Label(side, text="AI English Tutor", font=("Segoe UI", 17, "bold"), fg=TEXT, bg="#0b1220").pack(anchor="w", padx=18, pady=(22, 4))
+        tk.Label(side, text="Search and Learn", font=("Segoe UI", 17, "bold"), fg=TEXT, bg="#0b1220").pack(anchor="w", padx=18, pady=(22, 4))
         tk.Label(side, text=f"User: {self.current_user_name}", font=FONT_SMALL, fg=MUTED, bg="#0b1220").pack(anchor="w", padx=18, pady=(0, 18))
 
         buttons = [
