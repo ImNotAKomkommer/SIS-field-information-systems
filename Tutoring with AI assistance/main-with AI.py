@@ -233,9 +233,9 @@ class App(tk.Tk):
         super().__init__()
         init_db()
         self.title("AI Assisted Tutor Desktop App")
-        self.geometry("1600x760")
+        self.geometry("1200x640")
         # glue and sticks ↑ 
-        self.minsize(1200, 700)
+        self.minsize(840, 480)
         self.configure(bg=BG)
         self.current_user_id = None
         self.current_user_name = None

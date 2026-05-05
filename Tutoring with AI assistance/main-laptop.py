@@ -1181,7 +1181,7 @@ class App(tk.Tk):
             client = OpenAI(api_key=api_key)
 
             response = client.responses.create(
-                model="gpt-4.1-mini",
+                model="gpt-5.4-mini",
                 input=(
                     "You are an AI assistant inside an English tutoring desktop app. "
                     "Help students with English grammar, Present Simple, tutor booking, "
